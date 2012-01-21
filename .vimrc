@@ -44,7 +44,6 @@ set history=1000          "Increase history buffer to 1000
 set hidden                "Remember buffer history / undo when bringing a buffer to foreground
 
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Panel & Window management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
