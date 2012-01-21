@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/molokai.vim"]
 	path = .vim/bundle/molokai.vim
 	url = https://github.com/tomasr/molokai.git
+[submodule ".vim/bundle/nerdcommenter.vim"]
+	path = .vim/bundle/nerdcommenter.vim
+	url = https://github.com/scrooloose/nerdcommenter.git
