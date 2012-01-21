@@ -1,12 +1,9 @@
-syntax on
-colorscheme molokai       "Set theme
-
-let mapleader=","         "Change mapleader
-
 call pathogen#infect()
 call pathogen#helptags()
 
-filetype plugin indent on
+syntax on
+colorscheme molokai       "Set theme
+let mapleader=","         "Change mapleader
 
 
 set ignorecase            "Ignore case when searching
