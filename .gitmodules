@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/syntastic.vim"]
 	path = .vim/bundle/syntastic.vim
 	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/vim-css-color.vim"]
+	path = .vim/bundle/vim-css-color.vim
+	url = https://github.com/gf3/vim-css-color.git
