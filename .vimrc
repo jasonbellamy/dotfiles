@@ -1,3 +1,5 @@
+set nocompatible          "NO U Vi...
+
 call pathogen#infect()
 call pathogen#helptags()
 
