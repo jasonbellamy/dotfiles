@@ -22,6 +22,9 @@ set smarttab              "Tab inserts spaces
 set softtabstop=2         "Tab inserts 2 spaces
 set shiftwidth=2          "Number of spaces used for indenting
 
+set list                  "Display tabs and trailing spaces
+set listchars=tab:->,trail:⋅,nbsp:⋅
+
 set foldcolumn=4          "Column to show folds
 set foldenable
 set foldlevel=2
@@ -32,7 +35,7 @@ set foldnestmax=3         "Set max fold nesting level
 set autoindent            "use indent from last line on new line
 set smartindent           "unless closing a bracket then we jump to that indent location
 set backspace=indent,eol,start
-set nu                    "turn line numbers on
+set number                "turn line numbers on
 set cursorline            "highlight cursors line
 set ruler                 "show the cursors position in the status bar
 set mouse=a               "allow mouse in all modes
@@ -57,7 +60,7 @@ map <leader>sw<right> :botright vnew<CR>
 map <leader>sw<down>  :botright new<CR>
 map <leader>sw<left>  :topleft vnew<CR>
 
-"map panel splitting to <leader>sb (split panel) - up, right, down, left
+"map panel splitting to <leader>sp (split panel) - up, right, down, left
 map <leader>sp<up>    :leftabove new<CR>
 map <leader>sp<right> :rightbelow vnew<CR>
 map <leader>sp<down>  :rightbelow new<CR>
