@@ -41,9 +41,24 @@ set history=1000          "Increase history buffer to 1000
 set hidden                "Remember buffer history / undo when bringing a buffer to foreground
 
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Buffer & Window management
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "map window switching to <leader> up, right ,down, left
 map <leader><up>    <C-W><up>
 map <leader><right> <C-W><right>
 map <leader><down>  <C-W><down>
 map <leader><left>  <C-W><left>
 
+"map window splitting to <leader>sw (split window) - up, right, down, left
+map <leader>sw<up>    :topleft new<CR>
+map <leader>sw<right> :botright vnew<CR>
+map <leader>sw<down>  :botright new<CR>
+map <leader>sw<left>  :topleft vnew<CR>
+
+"map buffer splitting to <leader>sb (split buffer) - up, right, down, left
+map <leader>sb<up>    :leftabove new<CR>
+map <leader>sb<right> :rightbelow vnew<CR>
+map <leader>sb<down>  :rightbelow new<CR>
+map <leader>sb<left>  :leftabove vnew<CR>
