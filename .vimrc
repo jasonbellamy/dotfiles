@@ -43,9 +43,9 @@ set hidden                "Remember buffer history / undo when bringing a buffer
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Buffer & Window management
+" => Panel & Window management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"map window switching to <leader> up, right ,down, left
+"map window / panel switching to <leader> up, right ,down, left
 map <leader><up>    <C-W><up>
 map <leader><right> <C-W><right>
 map <leader><down>  <C-W><down>
@@ -57,8 +57,8 @@ map <leader>sw<right> :botright vnew<CR>
 map <leader>sw<down>  :botright new<CR>
 map <leader>sw<left>  :topleft vnew<CR>
 
-"map buffer splitting to <leader>sb (split buffer) - up, right, down, left
-map <leader>sb<up>    :leftabove new<CR>
-map <leader>sb<right> :rightbelow vnew<CR>
-map <leader>sb<down>  :rightbelow new<CR>
-map <leader>sb<left>  :leftabove vnew<CR>
+"map panel splitting to <leader>sb (split panel) - up, right, down, left
+map <leader>sp<up>    :leftabove new<CR>
+map <leader>sp<right> :rightbelow vnew<CR>
+map <leader>sp<down>  :rightbelow new<CR>
+map <leader>sp<left>  :leftabove vnew<CR>
