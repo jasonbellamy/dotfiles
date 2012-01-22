@@ -7,7 +7,6 @@ syntax on
 colorscheme molokai       "Set theme
 let mapleader=","         "Change mapleader
 
-
 set ignorecase            "Ignore case when searching
 set smartcase
 set hlsearch              "Highlight search terms"
@@ -44,7 +43,7 @@ set mouse=a               "allow mouse in all modes
 set nowrap                "Do not wrap lines
 set history=1000          "Increase history buffer to 1000
 set hidden                "Remember buffer history / undo when bringing a buffer to foreground
-
+set clipboard=unnamed     "Yank to the to system clipboard by default
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Panel, window, and tab management
