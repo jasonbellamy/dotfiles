@@ -50,10 +50,10 @@ set hidden                "Remember buffer history / undo when bringing a buffer
 " => Panel & Window management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "map window / panel switching to <leader> up, right ,down, left
-map <leader><up>    <C-W><up>
-map <leader><right> <C-W><right>
-map <leader><down>  <C-W><down>
-map <leader><left>  <C-W><left>
+map <leader>w<up>    <C-W><up>
+map <leader>w<right> <C-W><right>
+map <leader>w<down>  <C-W><down>
+map <leader>w<left>  <C-W><left>
 
 "map window splitting to <leader>sw (split window) - up, right, down, left
 map <leader>sw<up>    :topleft new<CR>
