@@ -7,6 +7,11 @@ syntax on
 colorscheme molokai       "Set theme
 let mapleader=","         "Change mapleader
 
+"Set temporary storage directories
+set backupdir=~/.vim/tmp/backup
+set directory=~/.vim/tmp/swap
+set undodir=~/.vim/tmp/undo
+
 set ignorecase            "Ignore case when searching
 set smartcase
 set hlsearch              "Highlight search terms"
