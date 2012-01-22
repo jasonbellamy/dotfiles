@@ -47,7 +47,7 @@ set hidden                "Remember buffer history / undo when bringing a buffer
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Panel & Window management
+" => Panel, window, and tab management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "map window / panel switching to <leader> up, right ,down, left
 map <leader>w<up>    <C-W><up>
@@ -66,3 +66,11 @@ map <leader>sp<up>    :leftabove new<CR>
 map <leader>sp<right> :rightbelow vnew<CR>
 map <leader>sp<down>  :rightbelow new<CR>
 map <leader>sp<left>  :leftabove vnew<CR>
+
+"map new & close tabs
+map <leader>nt :tabnew<CR>
+map <leader>ct :tabclose<CR>
+
+"map next & previous tabs
+map <leader>t<right> gt
+map <leader>t<left> gT
