@@ -42,6 +42,7 @@ set ruler                 "show the cursors position in the status bar
 set mouse=a               "allow mouse in all modes
 set nowrap                "Do not wrap lines
 set history=1000          "Increase history buffer to 1000
+set autoread              "Auto read remote / outside changes to the open file
 set hidden                "Remember buffer history / undo when bringing a buffer to foreground
 set clipboard=unnamed     "Yank to the to system clipboard by default
 
