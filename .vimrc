@@ -72,10 +72,21 @@ map <leader>sp<right> :rightbelow vnew<CR>
 map <leader>sp<down>  :rightbelow new<CR>
 map <leader>sp<left>  :leftabove vnew<CR>
 
+"map fast window resizing
+map + <C-W>+
+map - <C-W>-
+
 "map new & close tabs
-map <leader>nt :tabnew<CR>
-map <leader>ct :tabclose<CR>
+map <leader>tn :tabnew<CR>
+map <leader>tc :tabclose<CR>
 
 "map next & previous tabs
 map <leader>t<right> gt
 map <leader>t<left> gT
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => String / file manipulation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"strip all trailing whitespace from a file
+nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
+
