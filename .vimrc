@@ -90,3 +90,14 @@ map <leader>t<left> gT
 "strip all trailing whitespace from a file
 nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
 
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugin settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Command-T
+let g:CommandTMaxFiles=20000               "stop searching after this many files
+let g:CommandTMatchWindowAtTop=1           "display search results at the top of the window
+let g:CommandTMaxHeight=12                 "max search window height
+let g:CommandTCancelMap=['<Esc>', '<C-c>'] "maps to cancel the search window
+
