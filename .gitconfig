@@ -1,0 +1,14 @@
+[user]
+  name = Jason Bellamy
+  email = j@sonbellamy.com
+[core]
+  editor = vim
+[github]
+  user = jasonbellamy
+[color]
+  ui = auto
+[alias]
+  br = branch
+  co = checkout
+  st = status
+  lg = log -p
