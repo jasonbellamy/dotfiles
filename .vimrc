@@ -28,9 +28,6 @@ set smarttab              "Tab inserts spaces
 set softtabstop=2         "Tab inserts 2 spaces
 set shiftwidth=2          "Number of spaces used for indenting
 
-set list                  "Display tabs and trailing spaces
-set listchars=tab:->,trail:⋅,nbsp:⋅
-
 set foldcolumn=4          "Column to show folds
 set foldenable
 set foldlevel=2
@@ -89,15 +86,3 @@ map <leader>t<left> gT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "strip all trailing whitespace from a file
 nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
-
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Plugin settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Command-T
-let g:CommandTMaxFiles=20000               "stop searching after this many files
-let g:CommandTMatchWindowAtTop=1           "display search results at the top of the window
-let g:CommandTMaxHeight=12                 "max search window height
-let g:CommandTCancelMap=['<Esc>', '<C-c>'] "maps to cancel the search window
-
