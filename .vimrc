@@ -3,6 +3,8 @@ set nocompatible          "NO U Vi...
 call pathogen#infect()
 call pathogen#helptags()
 
+set t_Co=256
+set background=dark
 syntax on
 colorscheme molokai       "Set theme
 let mapleader=","         "Change mapleader
