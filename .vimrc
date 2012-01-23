@@ -29,6 +29,8 @@ set expandtab             "Expand tabs to spaces
 set smarttab              "Tab inserts spaces
 set softtabstop=2         "Tab inserts 2 spaces
 set shiftwidth=2          "Number of spaces used for indenting
+set list
+set listchars=tab:>-,trail:~,nbsp:~
 
 set foldcolumn=4          "Column to show folds
 set foldenable
