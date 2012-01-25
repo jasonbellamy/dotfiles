@@ -32,13 +32,6 @@ set shiftwidth=2          "Number of spaces used for indenting
 set list
 set listchars=tab:>-
 
-set foldcolumn=4          "Column to show folds
-set foldenable
-set foldlevel=2
-set foldmethod=syntax     "Markers are used to specify folds.
-set foldminlines=0        "Allow folding single lines
-set foldnestmax=3         "Set max fold nesting level
-
 set autoindent            "use indent from last line on new line
 set smartindent           "unless closing a bracket then we jump to that indent location
 set backspace=indent,eol,start
