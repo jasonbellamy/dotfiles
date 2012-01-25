@@ -30,7 +30,7 @@ set smarttab              "Tab inserts spaces
 set softtabstop=2         "Tab inserts 2 spaces
 set shiftwidth=2          "Number of spaces used for indenting
 set list
-set listchars=tab:>-,trail:~,nbsp:~
+set listchars=tab:>-
 
 set foldcolumn=4          "Column to show folds
 set foldenable
@@ -90,6 +90,39 @@ map <leader>t<left> gT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "strip all trailing whitespace from a file
 nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Convenience mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command W w "because i'm always typing W
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Status line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set statusline=
+set statusline +=%1*\ %n\ %*            "buffer number
+set statusline +=%5*%{&ff}%*            "file format
+set statusline +=%3*%y%*                "file type
+set statusline +=%4*\ %<%F%*            "full path
+set statusline +=%2*%m%*                "modified flag
+set statusline +=%1*%=%5l%*             "current line
+set statusline +=%2*/%L%*               "total lines
+set statusline +=%1*%4v\ %*             "virtual column number
+set statusline +=%2*0x%04B\ %*          "character under cursor
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Extras
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Highlight trailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin settings
