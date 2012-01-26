@@ -45,6 +45,16 @@ set autoread              "Auto read remote / outside changes to the open file
 set hidden                "Remember buffer history / undo when bringing a buffer to foreground
 set clipboard=unnamed     "Yank to the to system clipboard by default
 
+set formatoptions=
+set formatoptions+=c " Format comments
+set formatoptions+=r " Continue comments by default
+set formatoptions+=o " Make comment when using o or O from comment line
+set formatoptions+=q " Format comments with gq
+set formatoptions+=n " Recognize numbered lists
+set formatoptions+=2 " Use indent from 2nd line of a paragraph
+set formatoptions+=l " Don't break lines that are already long
+set formatoptions+=1 " Break before 1-letter words
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Panel, window, and tab management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
