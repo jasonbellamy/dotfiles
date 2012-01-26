@@ -128,4 +128,4 @@ let g:CommandTCancelMap=['<Esc>', '<C-c>'] "maps to cancel the search window
 
 "Syntastic
 "jslint options
-let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$,_,define,require"
+let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
