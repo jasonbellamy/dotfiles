@@ -31,3 +31,6 @@
 [submodule ".vim/bundle/coffeescript.vim"]
 	path = .vim/bundle/coffeescript.vim
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/snipmate.vim"]
+	path = .vim/bundle/snipmate.vim
+	url = https://github.com/msanders/snipmate.vim.git
