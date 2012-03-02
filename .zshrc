@@ -5,7 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-export ZSH_THEME="prose"
+export ZSH_THEME="soliah"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -29,5 +29,8 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
 
 alias rspec='nocorrect rspec'
+alias tmux='TERM=screen-256color-bce tmux'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+skip_global_compinit=1
