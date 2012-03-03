@@ -3,14 +3,6 @@ set nocompatible          "NO U Vi...
 call pathogen#infect()
 call pathogen#helptags()
 syntax enable
-set background=dark
-
-let g:solarized_termtrans=1
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-"let g:solarized_visibility='high'
-"let g:solarized_contrast='high'
-colorscheme solarized       "Set theme
 let mapleader=","         "Change mapleader
 
 "Set temporary storage directories
@@ -24,7 +16,6 @@ set hlsearch              "Highlight search terms"
 set incsearch             "Highlight search terms dynamically as they are being typed
 set laststatus=2          "always show status bar
 set showmode              "always show the current mode
-set showtabline=2         "always show the tab bar
 set title                 "Show the current filename in the titlebar
 set noerrorbells          "shhhhhh...
 
@@ -36,6 +27,7 @@ set shiftwidth=2          "Number of spaces used for indenting
 set list
 set listchars=tab:>-
 
+set autochdir             "set the current files dir as the current"
 set autoindent            "use indent from last line on new line
 set smartindent           "unless closing a bracket then we jump to that indent location
 set backspace=indent,eol,start
@@ -143,3 +135,14 @@ let g:CommandTCancelMap=['<Esc>', '<C-c>'] "maps to cancel the search window
 "Syntastic
 "jslint options
 let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Color scheme settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+highlight LineNr ctermbg=256 ctermfg=23
+highlight CursorLine ctermbg=23 ctermfg=255
