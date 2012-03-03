@@ -132,6 +132,11 @@ let g:CommandTMatchWindowAtTop=1           "display search results at the top of
 let g:CommandTMaxHeight=12                 "max search window height
 let g:CommandTCancelMap=['<Esc>', '<C-c>'] "maps to cancel the search window
 
+
+"Fugitive (remap for convenience)
+noremap :gs :Gstatus
+noremap :gc :Gcommit
+
 "Syntastic
 "jslint options
 let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
