@@ -7,6 +7,10 @@
   user = jasonbellamy
 [color]
   ui = auto
+[color "status"]
+  added = 23
+  changed = 255
+  untracked = 1
 [alias]
   br = branch
   co = checkout
