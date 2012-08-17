@@ -5,6 +5,20 @@ call pathogen#helptags()
 syntax enable
 let mapleader=","         "Change mapleader
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Color scheme settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+colorscheme solarized
+highlight LineNr ctermbg=256 ctermfg=23
+highlight CursorLine ctermbg=23 ctermfg=255
+highlight TabLine ctermfg=255 ctermbg=23
+highlight TablineFill cterm=underline ctermfg=255 ctermbg=23
+highlight TabLineSel ctermbg=255 ctermfg=1
+
 "Set temporary storage directories
 set undodir=~/.vim/tmp/undo
 set nobackup
@@ -141,16 +155,3 @@ noremap :gc :Gcommit
 "jslint options
 let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Color scheme settings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme solarized
-highlight LineNr ctermbg=256 ctermfg=23
-highlight CursorLine ctermbg=23 ctermfg=255
-highlight TabLine ctermfg=255 ctermbg=23
-highlight TablineFill cterm=underline ctermfg=255 ctermbg=23
-highlight TabLineSel ctermbg=255 ctermfg=1
