@@ -141,11 +141,11 @@ noremap :gc :Gcommit
 "jslint options
 let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color scheme settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
+set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
