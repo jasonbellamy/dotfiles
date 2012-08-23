@@ -148,6 +148,10 @@ noremap :gs :Gstatus
 noremap :gc :Gcommit
 set statusline +=%{fugitive#statusline()}
 
+"CtrlP
+let g:ctrlp_map = '<leader>p'
+
+
 "Syntastic
 "jslint options
 let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
