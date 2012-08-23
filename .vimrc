@@ -20,6 +20,7 @@ highlight TabLine ctermfg=255 ctermbg=23
 highlight TablineFill cterm=underline ctermfg=255 ctermbg=23
 highlight TabLineSel ctermbg=255 ctermfg=1
 
+
 "Set temporary storage directories
 set undodir=~/.vim/tmp/undo
 set nobackup
@@ -29,7 +30,7 @@ set ignorecase            "Ignore case when searching
 set smartcase
 set hlsearch              "Highlight search terms"
 set incsearch             "Highlight search terms dynamically as they are being typed
-set laststatus=2          "always show status bar
+set laststatus=2         "always show status bar
 set showmode              "always show the current mode
 set title                 "Show the current filename in the titlebar
 set noerrorbells          "shhhhhh...
@@ -141,12 +142,6 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Command-T
-let g:CommandTMaxFiles=20000               "stop searching after this many files
-let g:CommandTMatchWindowAtTop=1           "display search results at the top of the window
-let g:CommandTMaxHeight=12                 "max search window height
-let g:CommandTCancelMap=['<Esc>', '<C-c>'] "maps to cancel the search window
-
 
 "Fugitive (remap for convenience)
 noremap :gs :Gstatus
