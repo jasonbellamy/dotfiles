@@ -146,6 +146,7 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 "Fugitive (remap for convenience)
 noremap :gs :Gstatus
 noremap :gc :Gcommit
+set statusline +=%{fugitive#statusline()}
 
 "Syntastic
 "jslint options
