@@ -10,6 +10,7 @@ let mapleader=","         "Change mapleader
 " => Color scheme settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
+set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
