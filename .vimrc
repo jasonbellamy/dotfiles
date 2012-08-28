@@ -151,6 +151,8 @@ set statusline +=%{fugitive#statusline()}
 "CtrlP
 let g:ctrlp_map = '<leader>p'
 
+"NERDTree
+let g:NERDTreeDirArrows=0
 
 "Syntastic
 "jslint options
