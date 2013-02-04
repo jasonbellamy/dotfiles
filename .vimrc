@@ -70,22 +70,22 @@ set formatoptions+=1 " Break before 1-letter words
 " => Panel, window, and tab management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "map window / panel switching to <leader> up, right ,down, left
-map <leader>w<up>    <C-W><up>
-map <leader>w<right> <C-W><right>
-map <leader>w<down>  <C-W><down>
-map <leader>w<left>  <C-W><left>
+map <leader>wk <C-W><up>
+map <leader>wl <C-W><right>
+map <leader>wj <C-W><down>
+map <leader>wh <C-W><left>
 
 "map window splitting to <leader>sw (split window) - up, right, down, left
-map <leader>sw<up>    :topleft new<CR>
-map <leader>sw<right> :botright vnew<CR>
-map <leader>sw<down>  :botright new<CR>
-map <leader>sw<left>  :topleft vnew<CR>
+map <leader>swk :topleft new<CR>
+map <leader>swl :botright vnew<CR>
+map <leader>swj :botright new<CR>
+map <leader>swh :topleft vnew<CR>
 
 "map panel splitting to <leader>sp (split panel) - up, right, down, left
-map <leader>sp<up>    :leftabove new<CR>
-map <leader>sp<right> :rightbelow vnew<CR>
-map <leader>sp<down>  :rightbelow new<CR>
-map <leader>sp<left>  :leftabove vnew<CR>
+map <leader>spk :leftabove new<CR>
+map <leader>spl :rightbelow vnew<CR>
+map <leader>spj :rightbelow new<CR>
+map <leader>sph :leftabove vnew<CR>
 
 "map fast window resizing
 map + <C-W>+
@@ -96,8 +96,8 @@ map <leader>tn :tabnew<CR>
 map <leader>tc :tabclose<CR>
 
 "map next & previous tabs
-map <leader>t<right> gt
-map <leader>t<left> gT
+map <leader>tl gt
+map <leader>ht gT
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => String / file manipulation
