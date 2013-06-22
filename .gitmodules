@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-you-complete-me.vim"]
 	path = .vim/bundle/vim-you-complete-me.vim
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/jasmine"]
+	path = .vim/bundle/jasmine
+	url = git://github.com/claco/jasmine.vim.git
