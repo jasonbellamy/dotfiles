@@ -115,6 +115,9 @@ nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command W w "because i'm always typing W
 
+"Toggle folds with the spacebar
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
