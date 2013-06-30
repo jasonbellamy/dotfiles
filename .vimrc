@@ -38,7 +38,9 @@ set noerrorbells          "shhhhhh...
 set foldenable
 set foldcolumn=1
 set foldlevel=1
-set foldmethod=syntax
+set foldminlines=0
+set foldnestmax=1
+set foldmethod=indent
 
 set showmatch             "Show matching brackets / parenthesis
 set expandtab             "Expand tabs to spaces
