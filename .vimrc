@@ -35,6 +35,11 @@ set showmode              "always show the current mode
 set title                 "Show the current filename in the titlebar
 set noerrorbells          "shhhhhh...
 
+set foldenable
+set foldcolumn=1
+set foldlevel=1
+set foldmethod=syntax
+
 set showmatch             "Show matching brackets / parenthesis
 set expandtab             "Expand tabs to spaces
 set smarttab              "Tab inserts spaces
