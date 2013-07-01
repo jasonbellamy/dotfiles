@@ -37,7 +37,7 @@ set noerrorbells          "shhhhhh...
 
 set foldenable
 set foldcolumn=1
-set foldlevel=1
+set foldlevel=0
 set foldminlines=0
 set foldnestmax=1
 set foldmethod=indent
