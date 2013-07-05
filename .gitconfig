@@ -16,3 +16,5 @@
   co = checkout
   st = status
   lg = log -p
+[push]
+	default = simple
