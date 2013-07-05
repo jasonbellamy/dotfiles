@@ -160,6 +160,7 @@ set statusline +=%{fugitive#statusline()}
 
 "CtrlP
 let g:ctrlp_map = '<leader>p'
+let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|sass-cache)$'
 
 "NERDTree
