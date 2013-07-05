@@ -61,3 +61,4 @@
 [submodule ".vim/bundle/vim-signature.vim"]
 	path = .vim/bundle/vim-signature.vim
 	url = https://github.com/kshenoy/vim-signature.git
+        ignore = dirty
