@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/vim-easymotion.vim"]
 	path = .vim/bundle/vim-easymotion.vim
 	url = https://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/vim-signature.vim"]
+	path = .vim/bundle/vim-signature.vim
+	url = https://github.com/kshenoy/vim-signature.git
