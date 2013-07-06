@@ -62,3 +62,6 @@
 	path = .vim/bundle/vim-signature.vim
 	url = https://github.com/kshenoy/vim-signature.git
         ignore = dirty
+[submodule ".vim/bundle/vim-markdown.vim"]
+	path = .vim/bundle/vim-markdown.vim
+	url = https://github.com/plasticboy/vim-markdown.git
