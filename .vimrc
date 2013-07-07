@@ -21,6 +21,7 @@ highlight TablineFill cterm=underline ctermfg=255 ctermbg=23
 highlight TabLineSel ctermbg=255 ctermfg=1
 highlight Folded ctermbg=none ctermfg=23
 highlight FoldColumn ctermbg=none ctermfg=23
+highlight SignColumn ctermbg=none
 
 
 "Set temporary storage directories
