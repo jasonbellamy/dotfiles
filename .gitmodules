@@ -65,3 +65,6 @@
 [submodule ".vim/bundle/vim-markdown.vim"]
 	path = .vim/bundle/vim-markdown.vim
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule ".vim/bundle/vim-ultisnips.vim"]
+	path = .vim/bundle/vim-ultisnips.vim
+	url = https://github.com/SirVer/ultisnips.git
