@@ -65,3 +65,6 @@
 [submodule ".vim/bundle/vim-ultisnips.vim"]
 	path = .vim/bundle/vim-ultisnips.vim
 	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/bundle/vim-youcompleteme.vim"]
+	path = .vim/bundle/vim-youcompleteme.vim
+	url = https://github.com/Valloric/YouCompleteMe.git
