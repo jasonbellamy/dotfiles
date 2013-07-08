@@ -68,3 +68,6 @@
 [submodule ".vim/bundle/vim-youcompleteme.vim"]
 	path = .vim/bundle/vim-youcompleteme.vim
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule ".vim/bundle/vim-tabular.vim"]
+	path = .vim/bundle/vim-tabular.vim
+	url = https://github.com/godlygeek/tabular.git
