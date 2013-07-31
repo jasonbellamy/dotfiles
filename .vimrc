@@ -120,9 +120,6 @@ nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command W w "because i'm always typing W
 
-"Toggle folds with the spacebar
-nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
@@ -137,6 +134,25 @@ set statusline +=%1*%=%5l%*             "current line
 set statusline +=%2*/%L%*               "total lines
 set statusline +=%1*%4v\ %*             "virtual column number
 set statusline +=%2*0x%04B\ %*          "character under cursor
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Folding
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set foldenable
+set foldcolumn=1
+set foldlevel=0
+set foldminlines=0
+set foldnestmax=1
+
+"Allow indent and manual folding.
+augroup vimrc
+  au BufReadPre * setlocal foldmethod=indent
+  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+augroup END
+
+"Toggle folds with the spacebar
+nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
