@@ -71,3 +71,7 @@
 [submodule ".vim/bundle/vim-tabular.vim"]
 	path = .vim/bundle/vim-tabular.vim
 	url = https://github.com/godlygeek/tabular.git
+[submodule ".vim/bundle/vim-cssminister.vim"]
+	path = .vim/bundle/vim-cssminister.vim
+	url = https://github.com/vim-scripts/CSSMinister.git
+  ignore = dirty
