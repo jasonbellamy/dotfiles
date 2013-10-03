@@ -75,3 +75,6 @@
 	path = .vim/bundle/vim-cssminister.vim
 	url = https://github.com/vim-scripts/CSSMinister.git
   ignore = dirty
+[submodule ".vim/bundle/vim-handlebars.vim"]
+	path = .vim/bundle/vim-handlebars.vim
+	url = git://github.com/nono/vim-handlebars.git
