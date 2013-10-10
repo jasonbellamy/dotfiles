@@ -209,6 +209,14 @@ function! g:UltiSnips_Complete()
     return ""
 endfunction
 
+"Tabular
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:<CR>
+vmap <leader>a: :Tabularize /:<CR>
+
+"Emmet (remap for convenience)
+map <leader>es <C-y>,
 
 " Disable arrow keys for insert and normal mode
 map <up> <nop>
