@@ -97,10 +97,6 @@ map - <C-W>-
 map <leader>tn :tabnew<CR>
 map <leader>tc :tabclose<CR>
 
-"map next & previous tabs
-map <leader>tl gt
-map <leader>ht gT
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => String / file manipulation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
