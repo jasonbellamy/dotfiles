@@ -78,3 +78,6 @@
 [submodule ".vim/bundle/vim-handlebars.vim"]
 	path = .vim/bundle/vim-handlebars.vim
 	url = git://github.com/nono/vim-handlebars.git
+[submodule ".vim/bundle/vim-emmet.vim"]
+	path = .vim/bundle/vim-emmet.vim
+	url = http://github.com/mattn/emmet-vim.git
