@@ -38,13 +38,6 @@ set showmode              "always show the current mode
 set title                 "Show the current filename in the titlebar
 set noerrorbells          "shhhhhh...
 
-set foldenable
-set foldcolumn=1
-set foldlevel=0
-set foldminlines=0
-set foldnestmax=1
-set foldmethod=indent
-
 set showmatch             "Show matching brackets / parenthesis
 set expandtab             "Expand tabs to spaces
 set smarttab              "Tab inserts spaces
@@ -152,8 +145,7 @@ augroup vimrc
 augroup END
 
 "Toggle folds with the spacebar
-nnoremap <silent> <Space> @=(foldlevel('.')?'zA':"\<Space>")<CR>
-
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Extras
