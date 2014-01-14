@@ -159,8 +159,11 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "Fugitive (remap for convenience)
-noremap :gs :Gstatus
-noremap :gc :Gcommit
+map <leader>gs :Gstatus<CR>
+map <leader>gb :Gblame<CR>
+map <leader>gc :Gcommit<CR>
+map <leader>gg :Ggrep
+autocmd QuickFixCmdPost *grep* cwindow
 set statusline +=%{fugitive#statusline()}
 
 "CtrlP
