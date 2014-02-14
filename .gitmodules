@@ -72,6 +72,3 @@
 	path = .vim/bundle/vim-cssminister.vim
 	url = https://github.com/vim-scripts/CSSMinister.git
   ignore = dirty
-[submodule ".vim/bundle/vim-emmet.vim"]
-	path = .vim/bundle/vim-emmet.vim
-	url = http://github.com/mattn/emmet-vim.git
