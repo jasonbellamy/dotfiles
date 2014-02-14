@@ -15,7 +15,7 @@
   br = branch
   co = checkout
   st = status
-  lg = log -p
+  lg = log --pretty=oneline -n 50 --graph --abbrev-commit
   cl = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   cr = remote update --prune
 [push]
