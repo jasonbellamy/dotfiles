@@ -206,8 +206,11 @@ vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:<CR>
 vmap <leader>a: :Tabularize /:<CR>
 
-"Emmet (remap for convenience)
-map <leader>es <C-y>,
+"EasyMotion
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 " Disable arrow keys for insert and normal mode
 map <up> <nop>
