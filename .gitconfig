@@ -20,6 +20,8 @@
   cr = remote update --prune
 [push]
   default = simple
+[rerere]
+  enabled = 1
 [credential]
   helper = osxkeychain
 [hub]
