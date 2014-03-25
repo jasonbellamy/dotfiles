@@ -72,10 +72,10 @@ set formatoptions+=1 " Break before 1-letter words
 " => Panel, window, and tab management
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "map window / panel switching to <leader> up, right ,down, left
-map <leader>wk <C-W><up>
-map <leader>wl <C-W><right>
-map <leader>wj <C-W><down>
-map <leader>wh <C-W><left>
+map <leader>k <C-W><up>
+map <leader>l <C-W><right>
+map <leader>j <C-W><down>
+map <leader>h <C-W><left>
 
 "map window splitting to <leader>sw (split window) - up, right, down, left
 map <leader>swk :topleft new<CR>
