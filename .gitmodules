@@ -69,3 +69,9 @@
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule ".vim/bundlevim-gitgutter.vim"]
+	path = .vim/bundlevim-gitgutter.vim
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule ".vim/bundle/vim-gitgutter.vim"]
+	path = .vim/bundle/vim-gitgutter.vim
+	url = https://github.com/airblade/vim-gitgutter.git
