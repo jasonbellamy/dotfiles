@@ -78,3 +78,6 @@
 [submodule ".vim/bundle/tcomment.vim"]
 	path = .vim/bundle/tcomment.vim
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule ".vim/bundle/tagbar.vim"]
+	path = .vim/bundle/tagbar.vim
+	url = https://github.com/majutsushi/tagbar.git
