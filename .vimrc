@@ -206,6 +206,9 @@ vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:<CR>
 vmap <leader>a: :Tabularize /:<CR>
 
+"Tagbar
+nmap <leader>t :TagbarToggle<CR>
+
 "EasyMotion
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
