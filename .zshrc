@@ -30,6 +30,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH=/usr/local/bin:$PATH
 
 alias rspec='nocorrect rspec'
+alias git='hub'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
