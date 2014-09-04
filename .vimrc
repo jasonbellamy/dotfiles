@@ -1,7 +1,5 @@
 set nocompatible          "NO U Vi...
 
-call pathogen#infect()
-call pathogen#helptags()
 syntax enable
 let mapleader=","         "Change mapleader
 
@@ -182,23 +180,23 @@ let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-
-"allow integration with youcompleteme plugin
-function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips_JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
+" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+"
+" "Integration with youcompleteme plugin
+" function! g:UltiSnips_Complete()
+"     call UltiSnips_ExpandSnippet()
+"     if g:ulti_expand_res == 0
+"         if pumvisible()
+"             return "\<C-n>"
+"         else
+"             call UltiSnips_JumpForwards()
+"             if g:ulti_jump_forwards_res == 0
+"                return "\<TAB>"
+"             endif
+"         endif
+"     endif
+"     return ""
+" endfunction
 
 "Tabular
 nmap <leader>a= :Tabularize /=<CR>
@@ -214,3 +212,30 @@ map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
+
+call plug#begin('~/.vim/bundle')
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-fugitive'
+Plug 'claco/jasmine.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'tomtom/tcomment_vim'
+Plug 'tomtom/tlib_vim'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'ap/vim-css-color'
+Plug 'kien/ctrlp.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'mattn/gist-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-haml'
+Plug 'pangloss/vim-javascript'
+Plug 'plasticboy/vim-markdown'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'kshenoy/vim-signature'
+Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
+Plug 'SirVer/ultisnips'
+Plug 'mattn/webapi-vim'
+Plug 'Valloric/YouCompleteMe'
+call plug#end()
