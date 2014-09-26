@@ -35,3 +35,9 @@ alias git='hub'
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Automatically list current directory contents each time "cd" is called.
+function chpwd() {
+  emulate -L zsh
+  ls -al
+}
