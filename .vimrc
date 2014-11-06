@@ -12,14 +12,14 @@ set t_Co=256
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
-highlight LineNr ctermbg=none ctermfg=23
-highlight CursorLine ctermbg=23 ctermfg=255
-highlight TabLine ctermfg=255 ctermbg=23
-highlight TablineFill cterm=underline ctermfg=255 ctermbg=23
-highlight TabLineSel ctermbg=255 ctermfg=1
-highlight Folded ctermbg=none ctermfg=23
-highlight FoldColumn ctermbg=none ctermfg=23
-highlight SignColumn ctermbg=none
+autocmd ColorScheme * highlight LineNr ctermbg=none ctermfg=23
+autocmd ColorScheme * highlight CursorLine ctermbg=23 ctermfg=255
+autocmd ColorScheme * highlight TabLine ctermfg=255 ctermbg=23
+autocmd ColorScheme * highlight TablineFill cterm=underline ctermfg=255 ctermbg=23
+autocmd ColorScheme * highlight TabLineSel ctermbg=255 ctermfg=1
+autocmd ColorScheme * highlight Folded ctermbg=none ctermfg=23
+autocmd ColorScheme * highlight FoldColumn ctermbg=none ctermfg=23
+autocmd ColorScheme * highlight SignColumn ctermbg=none
 
 
 "Set temporary storage directories
