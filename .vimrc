@@ -1,7 +1,8 @@
 set nocompatible          "NO U Vi...
 
-syntax enable
 let mapleader=","         "Change mapleader
+syntax enable
+set shell=bash
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
