@@ -177,27 +177,13 @@ let g:NERDTreeDirArrows=0
 "jslint options
 let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
 
-"UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-
-" au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-"
-" "Integration with youcompleteme plugin
-" function! g:UltiSnips_Complete()
-"     call UltiSnips_ExpandSnippet()
-"     if g:ulti_expand_res == 0
-"         if pumvisible()
-"             return "\<C-n>"
-"         else
-"             call UltiSnips_JumpForwards()
-"             if g:ulti_jump_forwards_res == 0
-"                return "\<TAB>"
-"             endif
-"         endif
-"     endif
-"     return ""
-" endfunction
+"YCM/UltiSnips/SuperTab (allow use of <tab> for both YCM & UltiSnips)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 "Tabular
 nmap <leader>a= :Tabularize /=<CR>
@@ -237,6 +223,8 @@ Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'mattn/webapi-vim'
+Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe'
 call plug#end()
