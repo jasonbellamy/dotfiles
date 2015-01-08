@@ -1,8 +1,20 @@
 set -x EDITOR vim
+set -x RBENV_ROOT /usr/local/var/rbenv
+
+
+# Paths
+test -d /usr/local/share/npm/bin ; and set PATH /usr/local/share/npm/bin $PATH
+test -d /usr/local/sbin          ; and set PATH /usr/local/sbin $PATH
+test -d /usr/local/bin           ; and set PATH /usr/local/bin $PATH
 
 # Navigation
-function ..    ; cd .. ; end
-function ...   ; cd ../.. ; end
+function c     ; cd $argv; and ls -al; end
+function ..    ; c .. ; end
+function ...   ; c ../.. ; end
+
+alias tree "tree -I 'node_modules|.git' -P '*|.*' -a"
+
+
 
 # Utilities
 function g; hub $argv ; end
@@ -26,3 +38,11 @@ function fish_prompt
   set_color normal
   printf ' » '
 end
+
+# rbenv
+if test -d $RBENV_ROOT
+  set PATH $RBENV_ROOT/bin $PATH
+  set PATH $RBENV_ROOT/shims $PATH
+  rbenv rehash >/dev/null ^&1
+end
+
