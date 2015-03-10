@@ -227,4 +227,5 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/webapi-vim'
 Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe'
+Plug 'othree/html5.vim'
 call plug#end()
