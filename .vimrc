@@ -156,6 +156,9 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jsdoc_allow_input_prompt=1
+let g:jsdoc_additional_descriptions=1
+let g:jsdoc_input_description=1
 
 "Fugitive (remap for convenience)
 map <leader>gs :Gstatus<CR>
@@ -176,6 +179,9 @@ let g:NERDTreeDirArrows=0
 "Syntastic
 "jslint options
 let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
+
+"vim-jsx
+let g:jsx_ext_required = 0
 
 "YCM/UltiSnips/SuperTab (allow use of <tab> for both YCM & UltiSnips)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
@@ -227,5 +233,7 @@ Plug 'honza/vim-snippets'
 Plug 'mattn/webapi-vim'
 Plug 'ervandew/supertab'
 Plug 'Valloric/YouCompleteMe'
+Plug 'heavenshell/vim-jsdoc'
 Plug 'othree/html5.vim'
+Plug 'mxw/vim-jsx'
 call plug#end()
