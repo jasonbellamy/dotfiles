@@ -12,6 +12,7 @@ alias v="vim"
 alias n="npm"
 alias ni="npm install"
 alias nt="npm test"
+alias nr="npm run"
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh               # load NVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # load RVM
