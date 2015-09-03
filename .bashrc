@@ -16,5 +16,8 @@ alias nt="npm test"
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh               # load NVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # load RVM
 
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 source ~/.config/bash/.git-prompt.sh
-export PS1='[\w:$(__git_ps1 " (%s)")]\n\$ '
+GIT_PS1_SHOWCOLORHINTS=true
+PROMPT_COMMAND='__git_ps1 "[\w]:" "\\n\\[\e[0;37m\]$\[\e[0m\] "'
