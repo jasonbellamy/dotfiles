@@ -15,7 +15,7 @@ alias nt="npm test"
 alias nr="npm run"
 
 if command -v tmux>/dev/null; then
-  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && exec tmux
+  [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && tmux new-session -s core -n editor -d && tmux new-window -t core:2 -n tests && tmux new-window -t core:3 -n server && tmux new-window -t core:4 -n console && tmux select-window -t core:1 && tmux -2 attach-session -t core
 fi
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh               # load NVM
