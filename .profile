@@ -1,3 +1,5 @@
+set -o vi # set vi mode
+
 alias g="git"
 alias c="cd"
 alias ..="cd .."
