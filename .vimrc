@@ -108,6 +108,15 @@ nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 command W w "because i'm always typing W
 
+"disable arrow keys for insert and normal mode (old man mode engaged)
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status line
