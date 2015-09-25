@@ -23,4 +23,4 @@ source ~/bin/bash/.git-prompt.sh
 source ~/bin/bash/.git-completion.sh
 
 GIT_PS1_SHOWCOLORHINTS=true
-PROMPT_COMMAND='__git_ps1 "[\w]:" "\\n\\[\e[0;37m\]λ\[\e[0m\] "'
+PROMPT_COMMAND='__git_ps1 "[\W]:" " \[\e[0;37m\]λ\[\e[0m\] "'
