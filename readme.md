@@ -11,4 +11,4 @@ You'll need to install the following software to make full use of these dotfiles
 All of the Vim plugins are managed using [vim-plug](https://github.com/junegunn/vim-plug), so you'll need to run `:PlugInstall` the first time you open Vim.
 
 ## Tmux
-All of the Tmux plugins are managed using [tmux-fpp](https://github.com/tmux-plugins/tmux-fpp), so you'll need to press `prefix + I` to fetch the plugins the first time you open Tmux.
+All of the Tmux plugins are managed using [tmux-tpm](https://github.com/tmux-plugins/tpm), so you'll need to press `prefix + I` to fetch the plugins the first time you open Tmux.
