@@ -12,6 +12,9 @@
   changed = 255
   untracked = 1
 [alias]
+  a  = add
+  c  = commit
+  p  = push
   br = branch
   co = checkout
   st = status
