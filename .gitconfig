@@ -14,7 +14,9 @@
 [alias]
   a  = add
   c  = commit
-  p  = push
+  g  = grep
+  ps = push
+  pl = pull
   br = branch
   co = checkout
   st = status
