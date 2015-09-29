@@ -155,8 +155,8 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 " => Extras
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Highlight trailing whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-au ColorScheme * highlight ExtraWhitespace guibg=red
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=124   
+au ColorScheme * highlight ExtraWhitespace ctermbg=124
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
