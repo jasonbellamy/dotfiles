@@ -30,5 +30,3 @@
   enabled = 1
 [credential]
   helper = osxkeychain
-[hub]
-  host = github.fctechno.com
