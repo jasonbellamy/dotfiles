@@ -15,6 +15,7 @@
   a  = add
   c  = commit
   g  = grep
+  f  = fetch
   ps = push
   pl = pull
   br = branch
