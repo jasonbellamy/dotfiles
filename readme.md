@@ -4,7 +4,7 @@
 You'll need to install the following software to make full use of these dotfiles.
 
 - [Git](http://git-scm.com/) (1.8+)
-- [Tmux](http://tmux.sourceforge.net/)
+- [Tmux](http://tmux.github.io/)
 - [Vim](http://www.vim.org/) (7.3+)
 
 ## Vim
