@@ -50,6 +50,7 @@ set autoindent            "use indent from last line on new line
 set smartindent           "unless closing a bracket then we jump to that indent location
 set backspace=indent,eol,start
 set number                "turn line numbers on
+set relativenumber        "turn relative line numbers on"
 set cursorline            "highlight cursors line
 set ruler                 "show the cursors position in the status bar
 set mouse=a               "allow mouse in all modes
@@ -155,7 +156,7 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 " => Extras
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Highlight trailing whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=124   
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=124
 au ColorScheme * highlight ExtraWhitespace ctermbg=124
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
