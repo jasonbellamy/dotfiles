@@ -103,6 +103,8 @@ map <leader>tc :tabclose<CR>
 "strip all trailing whitespace from a file
 nnoremap <leader>ws :%s/\s\+$//<CR>:let @/=''<CR>
 
+"toggle paste
+map <leader>sp :set paste!<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Convenience mappings
