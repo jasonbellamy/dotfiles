@@ -251,4 +251,5 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'othree/html5.vim'
 Plug 'mxw/vim-jsx'
+Plug 'metakirby5/codi.vim'
 call plug#end()
