@@ -1,6 +1,6 @@
 #!/bin/bash
 scratch() {
-  vim $2 -c \
+  vim $3 -c \
     "let g:startify_disable_at_vimenter = 1 |\
     set bt=nofile ls=0 noru nonu nornu |\
     hi ColorColumn ctermbg=NONE |\

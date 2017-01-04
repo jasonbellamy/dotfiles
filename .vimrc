@@ -96,6 +96,7 @@ map - <C-W>-
 "map new & close tabs
 map <leader>tn :tabnew<CR>
 map <leader>tc :tabclose<CR>
+map <leader>tm :tabedit %<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => String / file manipulation
