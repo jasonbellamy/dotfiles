@@ -6,9 +6,9 @@ tmux_prompt() {
 
     # names of the windows to open
     sessions[1]='editor'
-    sessions[2]='test'
-    sessions[3]='server'
-    sessions[4]='console'
+    sessions[2]='console'
+    sessions[3]='test'
+    sessions[4]='server'
 
     for i in "${!sessions[@]}"; do
       tmux new-window -t "$1:$i" -n "${sessions[$i]}"
