@@ -14,7 +14,7 @@ alias n="npm"
 alias ni="npm install"
 alias nt="npm test"
 alias nr="npm run"
-alias x="tmux_prompt"
+alias x='tmux_prompt "${PWD##*/}"'
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
