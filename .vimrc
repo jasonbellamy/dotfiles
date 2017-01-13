@@ -193,8 +193,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|sass-cache)$'
 let g:NERDTreeDirArrows=0
 
 "Syntastic
-"jslint options
-let g:syntastic_javascript_jslint_conf = "--browser --es5 --white --predef=$"
+let g:syntastic_javascript_checkers = ['eslint']
 
 "vim-jsx
 let g:jsx_ext_required = 0
