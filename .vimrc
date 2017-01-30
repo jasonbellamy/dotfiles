@@ -224,6 +224,10 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+"Pretier
+autocmd FileType javascript set formatprg=prettier\ --stdin
+autocmd BufWritePre *.js :normal gggqG
+
 call plug#begin('~/.vim/bundle')
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-fugitive'
