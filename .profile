@@ -14,6 +14,7 @@ alias n="npm"
 alias ni="npm install"
 alias nt="npm test"
 alias nr="npm run"
+alias dc="docker-compose"
 alias x='tmux_prompt "${PWD##*/}"'
 
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
