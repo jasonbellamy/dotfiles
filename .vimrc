@@ -5,6 +5,7 @@ syntax enable
 set shell=bash
 
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Color scheme settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -259,4 +260,5 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'othree/html5.vim'
 Plug 'mxw/vim-jsx'
 Plug 'metakirby5/codi.vim'
+Plug 'tomlion/vim-solidity'
 call plug#end()
