@@ -177,7 +177,7 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 let g:jsdoc_allow_input_prompt=1
 let g:jsdoc_additional_descriptions=1
 let g:jsdoc_input_description=1
-let g:jsdoc_allow_shorthand=1
+let g:jsdoc_enable_es6=1
 nmap <silent> <leader>doc <Plug>(jsdoc)
 
 "Fugitive (remap for convenience)
