@@ -225,6 +225,11 @@ omap / <Plug>(easymotion-tn)
 map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
+"vim test
+map <leader>rtn :TestNearest<CR>
+map <leader>rtf :TestFile<CR>
+map <leader>rts :TestSuite<CR>
+
 "Pretier
 autocmd FileType javascript set formatprg=prettier\ --stdin
 autocmd BufWritePre *.js :normal gggqG
@@ -261,4 +266,5 @@ Plug 'othree/html5.vim'
 Plug 'mxw/vim-jsx'
 Plug 'metakirby5/codi.vim'
 Plug 'tomlion/vim-solidity'
+Plug 'janko-m/vim-test'
 call plug#end()
