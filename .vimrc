@@ -206,9 +206,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:jsx_ext_required = 0
 
 "YCM/UltiSnips/SuperTab (allow use of <tab> for both YCM & UltiSnips)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
@@ -235,7 +232,9 @@ map <leader>rts :TestSuite<CR>
 
 "Pretier
 autocmd FileType javascript set formatprg=prettier\ --stdin
-autocmd BufWritePre *.js :normal gggqG
+" autocmd BufWritePre *.js :normal gggqG
+
+let g:deoplete#enable_at_startup = 1
 
 call plug#begin('~/.vim/bundle')
 Plug 'kchmck/vim-coffee-script'
@@ -263,11 +262,15 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'mattn/webapi-vim'
 Plug 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'othree/html5.vim'
 Plug 'mxw/vim-jsx'
 Plug 'metakirby5/codi.vim'
 Plug 'tomlion/vim-solidity'
+Plug 'universal-ctags/ctags'
+Plug 'styled-components/vim-styled-components'
 Plug 'janko-m/vim-test'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
