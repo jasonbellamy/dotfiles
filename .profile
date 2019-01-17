@@ -1,6 +1,7 @@
 set -o vi # set vi mode
 
 alias g="git"
+alias gc="commit --color=false"
 alias c="cd"
 alias ..="cd .."
 alias ...="cd ../.."
