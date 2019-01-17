@@ -32,3 +32,8 @@
   enabled = 1
 [credential]
   helper = osxkeychain
+[commit]
+[gpg]
+	program = gpg
+[commit]
+	gpgsign = true
