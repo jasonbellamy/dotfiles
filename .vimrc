@@ -99,6 +99,9 @@ map <leader>tn :tabnew<CR>
 map <leader>tc :tabclose<CR>
 map <leader>tm :tabedit %<CR>
 
+"map open file
+map <leader>gf <C-W>gf
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => String / file manipulation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
