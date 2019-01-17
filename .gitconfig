@@ -3,6 +3,7 @@
   email = j@sonbellamy.com
 [core]
   editor = vim
+	ignorecase = false
 [github]
   user = jasonbellamy
 [color]
