@@ -21,6 +21,7 @@ alias x='tmux_prompt "${PWD##*/}"'
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
+export GPG_TTY=$(tty)
 export PATH="$PATH:$HOME/.yarn/bin"
 export GHC_DOT_APP="/Applications/ghc-7.10.2.app"
 if [ -d "$GHC_DOT_APP" ]; then
