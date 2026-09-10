@@ -1,0 +1,15 @@
+# Ghostty — https://ghostty.org/docs/config
+# Inspect the running config with: ghostty +show-config
+# List valid theme names with:     ghostty +list-themes
+# List font families with:         ghostty +list-fonts
+
+# Ghostty speaks the kitty graphics protocol, which is what terminal-browser
+# needs to paint pixels. It is on by default — nothing to enable here.
+# herdr owns tabs, splits and panes, so Ghostty's own multiplexing goes unused.
+
+# font-size = 13
+
+# The rest of this setup is solarized (see .vimrc and herdr's config.toml).
+# Theme names are case- and spacing-sensitive, so confirm with +list-themes
+# before uncommenting:
+# theme = Solarized Dark

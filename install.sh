@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+# Symlink these dotfiles into $HOME. Idempotent: existing real files are
+# backed up to <name>.bak, existing correct symlinks are left alone.
+set -euo pipefail
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FAILED=0
+
+link() {
+  local src="$DOTFILES/$1" dest="$2"
+  mkdir -p "$(dirname "$dest")"
+  if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$src" ]; then
+    printf '  ok      %s\n' "$dest"; return
+  fi
+  if [ -e "$dest" ] || [ -L "$dest" ]; then
+    mv "$dest" "$dest.bak"
+    printf '  backup  %s -> %s.bak\n' "$dest" "$dest"
+  fi
+  ln -sfn "$src" "$dest"
+  printf '  link    %s\n' "$dest"
+}
+
+echo "Linking dotfiles from $DOTFILES"
+for f in .aliases .gitconfig .profile .tmux.conf .vim .vimrc .zprofile .zshrc bin; do
+  link "$f" "$HOME/$f"
+done
+# nested configs are linked file-by-file so we never clobber ~/.config itself
+link ".config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+link ".config/ghostty/config" "$HOME/.config/ghostty/config"
+
+# .vimrc sets undodir here; vim does not create it itself
+mkdir -p "$HOME/.vim/tmp/undo"
+echo "  mkdir   $HOME/.vim/tmp/undo"
+
+echo
+echo "Fetching plugin managers"
+TPM="$DOTFILES/bin/tmux/plugins/tpm"
+if [ -d "$TPM/.git" ]; then
+  echo "  ok      tpm"
+else
+  if git clone -q https://github.com/tmux-plugins/tpm "$TPM"; then
+    echo "  clone   tpm"
+  else
+    echo "  FAILED  tpm clone — check network, then re-run ./install.sh"
+    FAILED=1
+  fi
+fi
+
+echo
+echo "Installing vim plugins (vim-plug is vendored in .vim/autoload)"
+if [ -t 1 ]; then
+  vim -c 'PlugInstall --sync' -c 'qa!' </dev/tty >/dev/tty 2>&1 || true
+  echo "  done"
+else
+  echo "  skipped — no tty. Run: vim +PlugInstall +qall"
+fi
+
+echo
+if [ "$(git config --get commit.gpgsign 2>/dev/null)" = "true" ] \
+   && [ -z "$(gpg --list-secret-keys 2>/dev/null)" ]; then
+  cat <<'WARN'
+  WARNING: commit.gpgsign is true but no GPG secret key was found.
+           Commits will fail with "gpg: signing failed: No secret key".
+           Fix with either:
+             gpg --full-generate-key && git config --global user.signingkey <KEY_ID>
+             git config --global commit.gpgsign false
+WARN
+fi
+
+if [ "$FAILED" -ne 0 ]; then
+  echo "Finished WITH ERRORS — see FAILED lines above."
+else
+  echo "Done."
+fi
+
+cat <<'NEXT'
+
+  Requires: git, vim 9.1+, tmux, zsh (+ oh-my-zsh for the prompt)
+  In tmux, press prefix + I once to fetch tmux plugins.
+NEXT

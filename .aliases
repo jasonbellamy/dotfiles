@@ -1,0 +1,31 @@
+# Shared shell config for zsh (and bash). Sourced from ~/.zshrc.
+# Extracted from .profile, which zsh does not read.
+
+set -o vi # set vi mode
+
+alias g="git"
+alias gc="git commit --color=false"
+alias c="cd"
+alias ..="cd .."
+alias ...="cd ../.."
+alias ls="ls -G"
+alias l="ls -al"
+alias tree="tree -aC -I '.git|node_modules|bower_components' --dirsfirst"
+alias t="tree"
+alias cl="clear"
+alias v="vim"
+alias n="npm"
+alias ni="npm install"
+alias nt="npm test"
+alias nr="npm run"
+alias dc="docker-compose"
+alias x='tmux_prompt "${PWD##*/}"'
+
+export GPG_TTY=$(tty)
+export PATH="$PATH:$HOME/.yarn/bin"
+
+# shell functions (POSIX-compatible, work under zsh)
+[ -s "$HOME/bin/bash/.tmux-prompt.sh" ] && . "$HOME/bin/bash/.tmux-prompt.sh"
+
+# NOTE: nvm/rvm loading, the GHC path, __git_ps1 and PROMPT_COMMAND stay in
+# .profile — they are bash-only or already handled by .zshrc/oh-my-zsh.

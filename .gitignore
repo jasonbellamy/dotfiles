@@ -1,0 +1,4 @@
+.DS_Store
+.vim/bundle/
+.vim/tmp/
+bin/tmux/plugins/

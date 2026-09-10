@@ -3,6 +3,16 @@ set nocompatible          "NO U Vi...
 let mapleader=","         "Change mapleader
 syntax enable
 set shell=bash
+set clipboard=unnamed     "Yank to the system clipboard
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Bundled packages (vim 9.2 ships these; no plugin manager needed)
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+packadd! matchit          "% jumps between matching tags/keywords
+packadd! cfilter          ":Cfilter narrows a quickfix list
+packadd editorconfig      "honour .editorconfig when a repo ships one
+packadd osc52             "clipboard over SSH via terminal escape
+set clipmethod+=osc52     "inert on macOS; gives remote hosts a clipboard path
 
 
 
@@ -149,7 +159,7 @@ set statusline +=%2*0x%04B\ %*          "character under cursor
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldenable
 set foldcolumn=1
-set foldlevel=0
+set foldlevelstart=99     "open every fold when a file is opened
 set foldminlines=0
 set foldnestmax=1
 
@@ -176,13 +186,6 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"vim-jsdoc
-let g:jsdoc_allow_input_prompt=1
-let g:jsdoc_additional_descriptions=1
-let g:jsdoc_input_description=1
-let g:jsdoc_enable_es6=1
-nmap <silent> <leader>doc <Plug>(jsdoc)
-
 "Fugitive (remap for convenience)
 map <leader>gs :Gstatus<CR>
 map <leader>gb :Gblame<CR>
@@ -199,25 +202,11 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|sass-cache)$'
 "NERDTree
 let g:NERDTreeDirArrows=0
 
-"Syntastic
-let g:syntastic_javascript_checkers = ['eslint']
-
-"vim-jsx
-let g:jsx_ext_required = 0
-
-"YCM/UltiSnips/SuperTab (allow use of <tab> for both YCM & UltiSnips)
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
-
 "Tabular
 nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:<CR>
 vmap <leader>a: :Tabularize /:<CR>
-
-"Tagbar
-nmap <leader>t :TagbarToggle<CR>
 
 "EasyMotion
 map / <Plug>(easymotion-sn)
@@ -234,43 +223,18 @@ map <leader>rts :TestSuite<CR>
 autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
 
-let g:deoplete#enable_at_startup = 1
-
 call plug#begin('~/.vim/bundle')
-Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-fugitive'
-Plug 'claco/jasmine.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
-Plug 'majutsushi/tagbar'
 Plug 'tomtom/tcomment_vim'
-Plug 'tomtom/tlib_vim'
-Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
 Plug 'Lokaltog/vim-easymotion'
-Plug 'mattn/gist-vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-haml'
-Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'kshenoy/vim-signature'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'mattn/webapi-vim'
-Plug 'ervandew/supertab'
-Plug 'heavenshell/vim-jsdoc'
 Plug 'othree/html5.vim'
-Plug 'mxw/vim-jsx'
-Plug 'metakirby5/codi.vim'
-Plug 'tomlion/vim-solidity'
-Plug 'universal-ctags/ctags'
 Plug 'styled-components/vim-styled-components'
 Plug 'janko-m/vim-test'
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
 call plug#end()
