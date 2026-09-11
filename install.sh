@@ -27,6 +27,7 @@ done
 # nested configs are linked file-by-file so we never clobber ~/.config itself
 link "$DOTFILES/.config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
 link "$DOTFILES/.config/ghostty/config" "$HOME/.config/ghostty/config"
+link "$DOTFILES/.config/hunk/config.toml" "$HOME/.config/hunk/config.toml"
 
 # .vimrc sets undodir here; vim does not create it itself
 mkdir -p "$HOME/.vim/tmp/undo"
