@@ -26,3 +26,6 @@ kitty_graphics = true
 
 [experimental]
 kitty_graphics = true
+
+[ui]
+status_indicators = "symbols"
