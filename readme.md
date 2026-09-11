@@ -22,6 +22,15 @@ All of the Vim plugins are managed using [vim-plug](https://github.com/junegunn/
 ## Tmux
 All of the Tmux plugins are managed using [tpm](https://github.com/tmux-plugins/tpm), so you'll need to press `prefix + I` to fetch the plugins the first time you open Tmux.
 
+## Hunk
+[Hunk](https://hunk.dev) is installed by `install.sh` into `~/.hunk`. To install it by hand:
+
+```
+curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path
+```
+
+`--no-modify-path` stops the installer editing `.zshrc` and `.profile`, which are tracked here. `.zprofile` already puts `~/.hunk/bin` on your PATH. Update with `hunk update`.
+
 ## herdr
 Plugins aren't tracked here. This one also installs `terminal-browser`:
 

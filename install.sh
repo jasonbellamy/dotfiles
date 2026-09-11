@@ -47,6 +47,19 @@ else
 fi
 
 echo
+echo "Installing hunk"
+# --no-modify-path: the installer would otherwise append to .zshrc/.profile,
+# which are symlinks into this repo. .zprofile puts ~/.hunk/bin on PATH instead.
+if [ -x "$HOME/.hunk/bin/hunk" ] || command -v hunk >/dev/null 2>&1; then
+  echo "  ok      hunk (update with: hunk update)"
+elif curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path >/dev/null; then
+  echo "  install hunk"
+else
+  echo "  FAILED  hunk install — check network, then re-run ./install.sh"
+  FAILED=1
+fi
+
+echo
 echo "Installing vim plugins (vim-plug is vendored in .vim/autoload)"
 if [ -t 1 ]; then
   vim -c 'PlugInstall --sync' -c 'qa!' </dev/tty >/dev/tty 2>&1 || true

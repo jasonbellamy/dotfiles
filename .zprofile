@@ -11,6 +11,8 @@ unset _brew
 # which macOS does not put on PATH by default.
 [ -d "$HOME/bin" ] && PATH="$HOME/bin:$PATH"
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
+# hunk installs itself to ~/.hunk/bin (install.sh skips its PATH edits)
+[ -d "$HOME/.hunk/bin" ] && PATH="$HOME/.hunk/bin:$PATH"
 export PATH
 
 # Drop duplicate PATH entries (zsh keeps $path and $PATH in sync)
