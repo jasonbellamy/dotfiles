@@ -7,7 +7,7 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 FAILED=0
 
 link() {
-  local src="$DOTFILES/$1" dest="$2"
+  local src="$1" dest="$2"
   mkdir -p "$(dirname "$dest")"
   if [ -L "$dest" ] && [ "$(readlink "$dest")" = "$src" ]; then
     printf '  ok      %s\n' "$dest"; return
@@ -22,11 +22,11 @@ link() {
 
 echo "Linking dotfiles from $DOTFILES"
 for f in .aliases .gitconfig .profile .tmux.conf .vim .vimrc .zprofile .zshrc bin; do
-  link "$f" "$HOME/$f"
+  link "$DOTFILES/$f" "$HOME/$f"
 done
 # nested configs are linked file-by-file so we never clobber ~/.config itself
-link ".config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
-link ".config/ghostty/config" "$HOME/.config/ghostty/config"
+link "$DOTFILES/.config/herdr/config.toml" "$HOME/.config/herdr/config.toml"
+link "$DOTFILES/.config/ghostty/config" "$HOME/.config/ghostty/config"
 
 # .vimrc sets undodir here; vim does not create it itself
 mkdir -p "$HOME/.vim/tmp/undo"
@@ -57,6 +57,39 @@ elif curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path >/dev/nu
 else
   echo "  FAILED  hunk install — check network, then re-run ./install.sh"
   FAILED=1
+fi
+
+echo
+echo "Linking agent skills"
+# Claude Code reads ~/.claude/skills; other agents read ~/.agents/skills.
+# Skills are linked from the tool that ships them, so its updates carry over.
+skill() {
+  local name="$1" src="$2"
+  if [ ! -d "$src" ]; then
+    printf '  skip    %s — not installed\n' "$name"; return
+  fi
+  link "$src" "$HOME/.claude/skills/$name"
+  link "$src" "$HOME/.agents/skills/$name"
+}
+
+# herdr only prints its skill, so it is written out (and refreshed) here
+HERDR_SKILL="$HOME/.claude/skills/herdr"
+if ! command -v herdr >/dev/null 2>&1; then
+  echo "  skip    herdr — not installed"
+elif mkdir -p "$HERDR_SKILL" && herdr --skill > "$HERDR_SKILL/SKILL.md"; then
+  echo "  write   $HERDR_SKILL/SKILL.md"
+  link "$HERDR_SKILL" "$HOME/.agents/skills/herdr"
+else
+  echo "  FAILED  herdr --skill"
+  FAILED=1
+fi
+
+skill terminal-browser "$HOME/.local/share/terminal-browser/app/skills/default/terminal-browser"
+
+if hunk_md="$(PATH="$HOME/.hunk/bin:$PATH" hunk skill path hunk-review 2>/dev/null)"; then
+  skill hunk-review "$(dirname "$hunk_md")"
+else
+  echo "  skip    hunk-review — not installed"
 fi
 
 echo
