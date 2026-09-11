@@ -38,5 +38,13 @@ Plugins aren't tracked here. This one also installs `terminal-browser`:
 herdr plugin install zenbu-labs/terminal-browser/herdr-plugin
 ```
 
-## Agent skills
-`install.sh` links the herdr, terminal-browser and hunk-review skills into `~/.claude/skills` (Claude Code) and `~/.agents/skills` (other agents). Each comes from the tool that ships it, so re-run `./install.sh` after installing one of them, such as the terminal-browser plugin above.
+## Agent configs
+Agent skills, agents and plugins for Claude Code and Cursor live in a separate private repo, `agent-configs`, which also links the skills that ship with herdr, terminal-browser and hunk. Set it up once, after this repo:
+
+```
+gh auth login
+gh repo clone jasonbellamy/agent-configs ~/Documents/projects/agent-configs
+~/Documents/projects/agent-configs/install.sh personal   # or: work | personal work
+```
+
+From then on, `install.sh` here re-runs it with the same profiles. Until it's set up, `install.sh` prints a `skip` line for it.
