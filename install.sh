@@ -60,47 +60,19 @@ else
 fi
 
 echo
-echo "Linking agent skills"
-# Claude Code reads ~/.claude/skills; other agents read ~/.agents/skills.
-# Skills are linked from the tool that ships them, so its updates carry over.
-# link() would back a real folder up to <name>.bak beside it, and agents
-# would load that as a second copy of the skill, so leave those alone
-link_skill() {
-  if [ -e "$2" ] && [ ! -L "$2" ]; then
-    printf '  skip    %s — not a symlink; remove it and re-run\n' "$2"; return
+echo "Agent configs"
+# Agent plugins and skills live in the private agent-configs repo. Its
+# install.sh records where it was cloned and which profiles this machine
+# uses, so it can be re-run here. It comes after hunk, whose skill it links.
+AGENT_CONFIGS="$HOME/.config/agent-configs"
+if [ -f "$AGENT_CONFIGS/repo" ] && [ -f "$AGENT_CONFIGS/profiles" ] \
+   && [ -x "$(cat "$AGENT_CONFIGS/repo")/install.sh" ]; then
+  if ! "$(cat "$AGENT_CONFIGS/repo")/install.sh"; then
+    echo "  FAILED  agent-configs install.sh"
+    FAILED=1
   fi
-  link "$1" "$2"
-}
-
-skill() {
-  local name="$1" src="$2"
-  if [ ! -d "$src" ]; then
-    printf '  skip    %s — not installed\n' "$name"; return
-  fi
-  link_skill "$src" "$HOME/.claude/skills/$name"
-  link_skill "$src" "$HOME/.agents/skills/$name"
-}
-
-# herdr only prints its skill, so it is written out (and refreshed) here.
-# It installs to ~/.local/bin, which isn't on PATH until a new login shell.
-HERDR_SKILL="$HOME/.claude/skills/herdr"
-PATH="$HOME/.local/bin:$PATH"
-if ! command -v herdr >/dev/null 2>&1; then
-  echo "  skip    herdr — not installed"
-elif mkdir -p "$HERDR_SKILL" && herdr --skill > "$HERDR_SKILL/SKILL.md"; then
-  echo "  write   $HERDR_SKILL/SKILL.md"
-  link_skill "$HERDR_SKILL" "$HOME/.agents/skills/herdr"
 else
-  echo "  FAILED  herdr --skill"
-  FAILED=1
-fi
-
-skill terminal-browser "$HOME/.local/share/terminal-browser/app/skills/default/terminal-browser"
-
-if hunk_md="$(PATH="$HOME/.hunk/bin:$PATH" hunk skill path hunk-review 2>/dev/null)"; then
-  skill hunk-review "$(dirname "$hunk_md")"
-else
-  echo "  skip    hunk-review — not installed"
+  echo "  skip    agent-configs — not set up (clone it and run its install.sh <profile>)"
 fi
 
 echo
