@@ -111,3 +111,4 @@ command -v nvm >/dev/null && nvm use default --silent
 
 # dotfiles (~/.dotfiles) — shared aliases, exports and functions
 [ -s "$HOME/.aliases" ] && . "$HOME/.aliases"
+export PATH="$HOME/.local/bin:$PATH"

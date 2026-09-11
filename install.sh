@@ -33,6 +33,11 @@ link "$DOTFILES/.config/hunk/config.toml" "$HOME/.config/hunk/config.toml"
 mkdir -p "$HOME/.vim/tmp/undo"
 echo "  mkdir   $HOME/.vim/tmp/undo"
 
+# herdr, Cursor CLI and Claude Code install to ~/.local/bin. macOS does not
+# put it on PATH by default; .zprofile/.zshrc do, but this process is bash.
+mkdir -p "$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
+
 echo
 echo "Fetching plugin managers"
 TPM="$DOTFILES/bin/tmux/plugins/tpm"
@@ -57,6 +62,50 @@ elif curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path >/dev/nu
   echo "  install hunk"
 else
   echo "  FAILED  hunk install — check network, then re-run ./install.sh"
+  FAILED=1
+fi
+
+echo
+echo "Installing herdr"
+if [ -x "$HOME/.local/bin/herdr" ] || command -v herdr >/dev/null 2>&1; then
+  echo "  ok      herdr (update with: herdr update)"
+elif curl -fsSL https://herdr.dev/install.sh | sh; then
+  echo "  install herdr"
+else
+  echo "  FAILED  herdr install — check network, then re-run ./install.sh"
+  FAILED=1
+fi
+
+echo
+echo "Installing herdr plugins"
+if ! command -v herdr >/dev/null 2>&1; then
+  echo "  skip    herdr not on PATH"
+elif herdr plugin install --yes zenbu-labs/terminal-browser/herdr-plugin; then
+  echo "  ok      terminal-browser"
+else
+  echo "  FAILED  herdr plugin install — check network, then re-run ./install.sh"
+  FAILED=1
+fi
+
+echo
+echo "Installing Cursor CLI"
+if [ -x "$HOME/.local/bin/cursor" ] || command -v cursor >/dev/null 2>&1; then
+  echo "  ok      cursor"
+elif curl -fsS https://cursor.com/install | bash; then
+  echo "  install cursor"
+else
+  echo "  FAILED  cursor install — check network, then re-run ./install.sh"
+  FAILED=1
+fi
+
+echo
+echo "Installing Claude Code"
+if [ -x "$HOME/.local/bin/claude" ] || command -v claude >/dev/null 2>&1; then
+  echo "  ok      claude"
+elif curl -fsSL https://claude.ai/install.sh | bash; then
+  echo "  install claude"
+else
+  echo "  FAILED  claude install — check network, then re-run ./install.sh"
   FAILED=1
 fi
 
@@ -107,4 +156,6 @@ cat <<'NEXT'
 
   Requires: git, vim 9.1+, tmux, zsh (+ oh-my-zsh for the prompt)
   In tmux, press prefix + I once to fetch tmux plugins.
+  New shells pick up ~/.local/bin from .zprofile/.zshrc.
+  This shell: source ~/.zshrc
 NEXT

@@ -14,7 +14,7 @@ You'll need to install the following software to make full use of these dotfiles
 - [Vim](https://www.vim.org/) (9.1+, `brew install vim` on macOS)
 - [Tmux](https://github.com/tmux/tmux)
 - Zsh, with [oh-my-zsh](https://ohmyz.sh/) for the prompt
-- [Ghostty](https://ghostty.org) and [herdr](https://herdr.dev)
+- [Ghostty](https://ghostty.org)
 
 ## Vim
 All of the Vim plugins are managed using [vim-plug](https://github.com/junegunn/vim-plug). `install.sh` installs them, or run `vim +PlugInstall +qall`.
@@ -32,11 +32,30 @@ curl -fsSL https://hunk.dev/install.sh | sh -s -- --no-modify-path
 `--no-modify-path` stops the installer editing `.zshrc` and `.profile`, which are tracked here. `.zprofile` already puts `~/.hunk/bin` on your PATH. Update with `hunk update`.
 
 ## herdr
-Plugins aren't tracked here. This one also installs `terminal-browser`:
+[herdr](https://herdr.dev) is installed by `install.sh` into `~/.local/bin`, along with the terminal-browser plugin. To install by hand:
 
 ```
-herdr plugin install zenbu-labs/terminal-browser/herdr-plugin
+curl -fsSL https://herdr.dev/install.sh | sh
+herdr plugin install --yes zenbu-labs/terminal-browser/herdr-plugin
 ```
+
+Update with `herdr update`.
+
+## Cursor CLI
+The [Cursor CLI](https://cursor.com/docs/cli/overview) is installed by `install.sh` into `~/.local/bin`. To install by hand:
+
+```
+curl https://cursor.com/install -fsS | bash
+```
+
+## Claude Code
+[Claude Code](https://code.claude.com/docs/en/install) is installed by `install.sh` into `~/.local/bin`. To install by hand:
+
+```
+curl -fsSL https://claude.ai/install.sh | bash
+```
+
+herdr, Cursor and Claude Code all live in `~/.local/bin`. `.zprofile` and `.zshrc` put that directory on PATH; do not append it from their installers. `install.sh` also exports it for the current run.
 
 ## Agent configs
 Agent skills, agents and plugins for Claude Code and Cursor live in a separate private repo, `agent-configs`, which also links the skills that ship with herdr, terminal-browser and hunk. Set it up once, after this repo:
