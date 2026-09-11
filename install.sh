@@ -63,22 +63,33 @@ echo
 echo "Linking agent skills"
 # Claude Code reads ~/.claude/skills; other agents read ~/.agents/skills.
 # Skills are linked from the tool that ships them, so its updates carry over.
+# link() would back a real folder up to <name>.bak beside it, and agents
+# would load that as a second copy of the skill, so leave those alone
+link_skill() {
+  if [ -e "$2" ] && [ ! -L "$2" ]; then
+    printf '  skip    %s — not a symlink; remove it and re-run\n' "$2"; return
+  fi
+  link "$1" "$2"
+}
+
 skill() {
   local name="$1" src="$2"
   if [ ! -d "$src" ]; then
     printf '  skip    %s — not installed\n' "$name"; return
   fi
-  link "$src" "$HOME/.claude/skills/$name"
-  link "$src" "$HOME/.agents/skills/$name"
+  link_skill "$src" "$HOME/.claude/skills/$name"
+  link_skill "$src" "$HOME/.agents/skills/$name"
 }
 
-# herdr only prints its skill, so it is written out (and refreshed) here
+# herdr only prints its skill, so it is written out (and refreshed) here.
+# It installs to ~/.local/bin, which isn't on PATH until a new login shell.
 HERDR_SKILL="$HOME/.claude/skills/herdr"
+PATH="$HOME/.local/bin:$PATH"
 if ! command -v herdr >/dev/null 2>&1; then
   echo "  skip    herdr — not installed"
 elif mkdir -p "$HERDR_SKILL" && herdr --skill > "$HERDR_SKILL/SKILL.md"; then
   echo "  write   $HERDR_SKILL/SKILL.md"
-  link "$HERDR_SKILL" "$HOME/.agents/skills/herdr"
+  link_skill "$HERDR_SKILL" "$HOME/.agents/skills/herdr"
 else
   echo "  FAILED  herdr --skill"
   FAILED=1
