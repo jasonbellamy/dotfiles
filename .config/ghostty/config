@@ -10,6 +10,6 @@
 # font-size = 13
 
 # The rest of this setup is solarized (see .vimrc and herdr's config.toml).
-# Theme names are case- and spacing-sensitive, so confirm with +list-themes
-# before uncommenting:
-# theme = Solarized Dark
+# Ghostty 1.3 has no plain "Solarized Dark"; this is the classic palette
+# (#002b36 background). Names are case- and spacing-sensitive: +list-themes.
+theme = iTerm2 Solarized Dark
