@@ -20,6 +20,36 @@ link() {
   printf '  link    %s\n' "$dest"
 }
 
+# ink ships no install script, only platform binaries, so download the one for
+# this OS/arch into ~/.local/bin alongside the other tools. The tag comes from
+# the /releases/latest redirect; the GitHub API would rate-limit unauthenticated.
+install_ink() {
+  local tag os arch tmp rc=0
+  tag="$(curl -fsSLI -o /dev/null -w '%{url_effective}' \
+    https://github.com/borghei/ink/releases/latest)" || return 1
+  tag="${tag##*/tag/}"
+  case "$tag" in v[0-9]*) ;; *) return 1 ;; esac
+  case "$(uname -s)" in
+    Darwin) os=macos ;;
+    Linux) os=linux ;;
+    *) return 1 ;;
+  esac
+  case "$(uname -m)" in
+    x86_64) arch=amd64 ;;
+    arm64|aarch64) arch=arm64 ;;
+    *) return 1 ;;
+  esac
+  tmp="$(mktemp)" || return 1
+  if curl -fsSL "https://github.com/borghei/ink/releases/download/$tag/ink-${os}-${arch}" \
+     -o "$tmp"; then
+    install -m 755 "$tmp" "$HOME/.local/bin/ink" || rc=1
+  else
+    rc=1
+  fi
+  rm -f "$tmp"
+  return $rc
+}
+
 echo "Linking dotfiles from $DOTFILES"
 for f in .aliases .gitconfig .profile .tmux.conf .vim .vimrc .zprofile .zshrc bin; do
   link "$DOTFILES/$f" "$HOME/$f"
@@ -106,6 +136,17 @@ elif curl -fsSL https://claude.ai/install.sh | bash; then
   echo "  install claude"
 else
   echo "  FAILED  claude install — check network, then re-run ./install.sh"
+  FAILED=1
+fi
+
+echo
+echo "Installing ink"
+if [ -x "$HOME/.local/bin/ink" ] || command -v ink >/dev/null 2>&1; then
+  echo "  ok      ink"
+elif install_ink; then
+  echo "  install ink"
+else
+  echo "  FAILED  ink install — check network, then re-run ./install.sh"
   FAILED=1
 fi
 
