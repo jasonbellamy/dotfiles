@@ -20,6 +20,31 @@ link() {
   printf '  link    %s\n' "$dest"
 }
 
+# glow ships no install script, only packages, so unpack the release tarball for
+# this OS/arch into ~/.local/bin alongside the other tools. The tag comes from
+# the /releases/latest redirect; the GitHub API would rate-limit unauthenticated.
+install_glow() {
+  local tag ver os arch dir tmp rc=0
+  tag="$(curl -fsSLI -o /dev/null -w '%{url_effective}' \
+    https://github.com/charmbracelet/glow/releases/latest)" || return 1
+  tag="${tag##*/tag/}"
+  case "$tag" in v[0-9]*) ;; *) return 1 ;; esac
+  ver="${tag#v}"
+  os="$(uname -s)"
+  arch="$(uname -m)"
+  case "$arch" in aarch64) arch=arm64 ;; esac
+  dir="glow_${ver}_${os}_${arch}"
+  tmp="$(mktemp -d)" || return 1
+  if curl -fsSL "https://github.com/charmbracelet/glow/releases/download/$tag/$dir.tar.gz" \
+     | tar xz -C "$tmp"; then
+    install -m 755 "$tmp/$dir/glow" "$HOME/.local/bin/glow" || rc=1
+  else
+    rc=1
+  fi
+  rm -rf "$tmp"
+  return $rc
+}
+
 echo "Linking dotfiles from $DOTFILES"
 for f in .aliases .gitconfig .profile .tmux.conf .vim .vimrc .zprofile .zshrc bin; do
   link "$DOTFILES/$f" "$HOME/$f"
@@ -106,6 +131,17 @@ elif curl -fsSL https://claude.ai/install.sh | bash; then
   echo "  install claude"
 else
   echo "  FAILED  claude install — check network, then re-run ./install.sh"
+  FAILED=1
+fi
+
+echo
+echo "Installing glow"
+if [ -x "$HOME/.local/bin/glow" ] || command -v glow >/dev/null 2>&1; then
+  echo "  ok      glow"
+elif install_glow; then
+  echo "  install glow"
+else
+  echo "  FAILED  glow install — check network, then re-run ./install.sh"
   FAILED=1
 fi
 
