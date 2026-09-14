@@ -55,12 +55,12 @@ curl https://cursor.com/install -fsS | bash
 curl -fsSL https://claude.ai/install.sh | bash
 ```
 
-## glow
-[glow](https://github.com/charmbracelet/glow) renders markdown in the terminal; `md` is aliased to `glow -p`. It ships no install script, so `install.sh` unpacks the release tarball for your OS and architecture into `~/.local/bin`. To install by hand, take an archive from the [releases](https://github.com/charmbracelet/glow/releases) page and put the `glow` binary there.
+## ink
+[ink](https://github.com/borghei/ink) renders markdown in the terminal, including Mermaid as ASCII; `md` is aliased to `ink`. It ships no install script, so `install.sh` downloads the binary for your OS and architecture into `~/.local/bin`. To install by hand, take a binary from the [releases](https://github.com/borghei/ink/releases) page and put it there as `ink`.
 
-Update by deleting `~/.local/bin/glow` and re-running `install.sh`.
+Update by deleting `~/.local/bin/ink` and re-running `install.sh`.
 
-herdr, Cursor, Claude Code and glow all live in `~/.local/bin`. `.zprofile` and `.zshrc` put that directory on PATH; do not append it from their installers. `install.sh` also exports it for the current run.
+herdr, Cursor, Claude Code and ink all live in `~/.local/bin`. `.zprofile` and `.zshrc` put that directory on PATH; do not append it from their installers. `install.sh` also exports it for the current run.
 
 ## Agent configs
 Agent skills, agents and plugins for Claude Code and Cursor live in a separate private repo, `agent-configs`, which also links the skills that ship with herdr, terminal-browser and hunk. Set it up once, after this repo:

@@ -20,28 +20,33 @@ link() {
   printf '  link    %s\n' "$dest"
 }
 
-# glow ships no install script, only packages, so unpack the release tarball for
+# ink ships no install script, only platform binaries, so download the one for
 # this OS/arch into ~/.local/bin alongside the other tools. The tag comes from
 # the /releases/latest redirect; the GitHub API would rate-limit unauthenticated.
-install_glow() {
-  local tag ver os arch dir tmp rc=0
+install_ink() {
+  local tag os arch tmp rc=0
   tag="$(curl -fsSLI -o /dev/null -w '%{url_effective}' \
-    https://github.com/charmbracelet/glow/releases/latest)" || return 1
+    https://github.com/borghei/ink/releases/latest)" || return 1
   tag="${tag##*/tag/}"
   case "$tag" in v[0-9]*) ;; *) return 1 ;; esac
-  ver="${tag#v}"
-  os="$(uname -s)"
-  arch="$(uname -m)"
-  case "$arch" in aarch64) arch=arm64 ;; esac
-  dir="glow_${ver}_${os}_${arch}"
-  tmp="$(mktemp -d)" || return 1
-  if curl -fsSL "https://github.com/charmbracelet/glow/releases/download/$tag/$dir.tar.gz" \
-     | tar xz -C "$tmp"; then
-    install -m 755 "$tmp/$dir/glow" "$HOME/.local/bin/glow" || rc=1
+  case "$(uname -s)" in
+    Darwin) os=macos ;;
+    Linux) os=linux ;;
+    *) return 1 ;;
+  esac
+  case "$(uname -m)" in
+    x86_64) arch=amd64 ;;
+    arm64|aarch64) arch=arm64 ;;
+    *) return 1 ;;
+  esac
+  tmp="$(mktemp)" || return 1
+  if curl -fsSL "https://github.com/borghei/ink/releases/download/$tag/ink-${os}-${arch}" \
+     -o "$tmp"; then
+    install -m 755 "$tmp" "$HOME/.local/bin/ink" || rc=1
   else
     rc=1
   fi
-  rm -rf "$tmp"
+  rm -f "$tmp"
   return $rc
 }
 
@@ -135,13 +140,13 @@ else
 fi
 
 echo
-echo "Installing glow"
-if [ -x "$HOME/.local/bin/glow" ] || command -v glow >/dev/null 2>&1; then
-  echo "  ok      glow"
-elif install_glow; then
-  echo "  install glow"
+echo "Installing ink"
+if [ -x "$HOME/.local/bin/ink" ] || command -v ink >/dev/null 2>&1; then
+  echo "  ok      ink"
+elif install_ink; then
+  echo "  install ink"
 else
-  echo "  FAILED  glow install — check network, then re-run ./install.sh"
+  echo "  FAILED  ink install — check network, then re-run ./install.sh"
   FAILED=1
 fi
 
